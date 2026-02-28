@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --arena-bg: #0a0a0f;
+  --arena-surface: #12121a;
+  --arena-border: #1e1e2e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--arena-bg);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ticker tape animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  animation: ticker 30s linear infinite;
+  width: max-content;
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+  border-color: rgba(74, 222, 128, 0.6);
+}
+
+.glow-red {
+  box-shadow: 0 0 12px rgba(248, 113, 113, 0.4);
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
+.glow-blue {
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+  border-color: rgba(96, 165, 250, 0.6);
+}
+
+/* Pulse animation for live dot */
+@keyframes pulse-live {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.pulse-live {
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+/* Chart custom tooltip */
+.custom-tooltip {
+  background: rgba(18, 18, 26, 0.95);
+  border: 1px solid #1e1e2e;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--arena-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a3e;
+  border-radius: 2px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
