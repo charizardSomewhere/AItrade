@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            padding: 20px;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            background: #ccc;
+            padding: 10px;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border: 2px solid blue;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            background: blue;
+            color: white;
+        }
+
+        .sidebar {
+            background: orange;
+            color: white;
+        }
+
+        .subcontainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box header">Header</div>
+        <div class="box sidebar">Sidebar</div>
+        <aside class="subcontainer">
+            <div class="box">Content A</div>
+            <div class="box">Content B</div>
+            <div class="box">Footer 1</div>
+            <div class="box">Footer 2</div>
+        </aside>
+    </div>
+
+</body>
+
+</html>
