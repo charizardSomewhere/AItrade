@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            gap: 10px;
+            background: #ccc;
+            padding: 10px;
+            width: 340px;
+            height: 280px;
+            align-items: center;
+            justify-content: center;
+            border-color: lightgreen;
+            border-width: 2px;
+            border-style: solid;
+            border-width: 5px;
+            border-radius: 20px;
+            background-color: rgb(0, 45, 0);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .other-type-of-row {
+            display: flex;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .text-white {
+            color: white;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .text-grey {
+            color: lightgrey;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .text-lime {
+            color: lime;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-large-font {
+            font-size: 36px;
+        }
+
+        .text-small-font {
+            font-size: 12px
+        }
+
+        .cylinder {
+            width: 85px;
+            height: 14px;
+            border-radius: 30px;
+            background-color: greenyellow;
+        }
+
+        .cylinder-border {
+            width: 100px;
+            height: 14px;
+            border-radius: 30px;
+            background-color: black;
+            overflow: hidden;
+            margin-top: 9px;
+        }
+
+        .box {
+            width: 160px;
+            height: 90px;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .line {
+            width: 320px;
+            margin-left: 10px;
+            height: 1px;
+            background-color: cornsilk;
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            background-color: limegreen;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="text-grey">ANALYZING</div>
+            <div class="text-white">$850.20</div>
+        </div>
+        <div class="row">
+            <div class="text-white text-large-font" style="padding-top: 10px">NVDA</div>
+            <div class="text-grey text-small-font" style="padding-top: 1px">Last Price</div>
+        </div>
+        <div class="other-type-of-row">
+            <div class="text-lime" style="padding-top: 12 px; font-size: 48px;">BUY</div>
+            <div style="padding-left: 30px">
+                <div class="text-grey text-small-font" style="padding-top: 10px">Confidence</div>
+                <div class="cylinder-border">
+                    <div class="cylinder"></div>
+                </div>
+            </div>
+            <div class="text-lime" style="font-size: 16px; padding-left: 20px; padding-top: 30px; text-align: left;">
+                85%</div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <div class="text-grey text-center text-small-font" style="padding-top:10px">Sentiment</div>
+                <div class="text-lime text-center text-large-font">Positive</div>
+            </div>
+            <div class="box">
+                <div class="text-grey text-center text-small-font" style="padding-top:10px">Score</div>
+                <div class="text-white text-center text-large-font">+0.85</div>
+            </div>
+        </div>
+        <div class="line" style="margin-top: 16px;"></div>
+        <div class="text-white text-center" style="font-size: 16px;">⏱ Updates every 15 min via</div>
+        <div class="text-white other-type-of-row" style="font-size: 22px; justify-content: center;">
+            Alpha Vantage
+            <div class="circle" style="margin-top: 4px; margin-left: 5px;"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
