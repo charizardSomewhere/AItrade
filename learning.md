@@ -32,6 +32,21 @@ You need JS before React.
 
 **Free resource:** [javascript.info](https://javascript.info) — chapters 1–5 are enough to start.
 
+### 🛠️ Phase 2 Project: Terminal Stock Ticker Simulator
+To lock in your JS skills, try building a small node script (`ticker.js`) that simulates stock prices changing!
+
+**The Goal:**
+Create an array of "stock" objects, and repeatedly print out their updated prices every few seconds.
+
+**Steps to build it:**
+1. Create an array of objects: `const portfolio = [{ ticker: "AAPL", price: 150.00 }, { ticker: "TSLA", price: 200.00 }]`
+2. Write a function named `updatePrices(stocks)` that uses `.map()` to go through your array and randomly increase or decrease the `price` of each stock by a few percent.
+3. Write a function named `printStockBoard(stocks)` that loops through the array and uses **Template Literals** to nicely format the output (e.g., `[AAPL] $152.34`).
+4. Use `setInterval()` to automatically run both of those functions every 2 seconds.
+5. Run your file in the terminal using `node ticker.js` and watch your "arena" run!
+
+*Hint: You'll heavily use objects, arrays, arrow functions, and template literals for this!*
+
 ---
 
 ## Phase 3: React Fundamentals (2–3 weeks)
