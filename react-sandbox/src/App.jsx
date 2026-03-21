@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -15,12 +15,16 @@ function ScoreDisplay(props) {
     return () => clearInterval(intervalId);
   }, [])
 
+  const inputRef = useRef(null)
+
 
   return (
     <div style={{ border: '1px solid white', padding: '10px', margin: '10px' }}>
       <h2>{props.text}</h2>
       <p>${currentMoney.toFixed(2)}</p>
-      <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+      <input style={{ marginRight: '8px' }} ref={inputRef} placeholder="Buy amount..." />
+      <button onClick={() => { inputRef.current.focus() }}>Focus Input!</button>
+      <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginTop: '8px' }}>
         <button onClick={() => setCurrentMoney(currentMoney + 15)}>Pump by $15!</button>
         <button onClick={() => setCurrentMoney(currentMoney - 15)}>Dump by $15!</button>
         <button onClick={() => setCurrentMoney(currentMoney - currentMoney)}>Set to $0!</button>
