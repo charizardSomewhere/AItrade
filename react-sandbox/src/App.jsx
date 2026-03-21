@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -7,6 +7,14 @@ import './App.css'
 function ScoreDisplay(props) {
 
   const [currentMoney, setCurrentMoney] = useState(props.money)
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const randomPrice = Math.floor(Math.random() * 100) + 100
+      setCurrentMoney(randomPrice)
+    }, 2000)
+    return () => clearInterval(intervalId);
+  }, [])
+
 
   return (
     <div style={{ border: '1px solid white', padding: '10px', margin: '10px' }}>
