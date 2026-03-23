@@ -47,17 +47,26 @@ function ScoreDisplay(props) {
 
 function App() {
 
+  const myPortfolio = [
+    { ticker: "AAPL", price: 194.56, news: "Bullish", high: 300.22 },
+    { ticker: "TSLA", price: 363.54, news: "Bearish", high: 414.48 },
+    { ticker: "NVDA", price: 193.49, news: "Bearish", high: 193.91 },
+    { ticker: "GOOG", price: 150.00, news: "Bullish", high: 175.50 },
+    { ticker: "MSFT", price: 159.39, news: "Bearish", high: 160.92 },
+    { ticker: "AMZN", price: 194.29, news: "Bullish", high: 290.43 },
+    { ticker: "META", price: 216.23, news: "Bullish", high: 258.18 }
+  ];
+
   return (
     <>
 
       <h1>Hello World!</h1>
       <div>
         <h1>Live Scores</h1>
-        <ScoreDisplay text="AAPL" money={194.56} news="Bullish" high={300.22} />
-        <ScoreDisplay text="TSLA" money={363.54} news="Bearish" high={414.48} />
-        <ScoreDisplay text="NVDA" money={193.49} news="Bearish" high={193.91} />
+        {myPortfolio.map((stock) => (
+          <ScoreDisplay key={stock.ticker} text={stock.ticker} money={stock.price} news={stock.news} high={stock.high} />
+        ))}
       </div>
-
     </>
   )
 }
