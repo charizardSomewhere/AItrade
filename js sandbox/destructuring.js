@@ -10,10 +10,10 @@
 // -----------------------------------------------
 
 const ticker = {
-  symbol: "NVDA",
-  price: 142.50,
-  change: 3.25,
-  sector: "Technology",
+    symbol: "NVDA",
+    price: 142.50,
+    change: 3.25,
+    sector: "Technology",
 };
 
 // The old way (dot notation):
@@ -33,10 +33,10 @@ console.log("Destructured:", symbol, price, change, sector);
 // You don't have to take everything — just pick the ones you want.
 
 const news = {
-  headline: "Fed holds rates steady",
-  source: "Reuters",
-  timestamp: "2026-03-14T10:00:00Z",
-  category: "macro",
+    headline: "Fed holds rates steady",
+    source: "Reuters",
+    timestamp: "2026-03-14T10:00:00Z",
+    category: "macro",
 };
 
 const { headline, source } = news;
@@ -52,8 +52,8 @@ console.log("Source:", source);         // "Reuters"
 // Use a colon to rename it.
 
 const stock = {
-  symbol: "AAPL",
-  price: 215.00,
+    symbol: "AAPL",
+    price: 215.00,
 };
 
 // We already have `symbol` and `price` from section 1,
@@ -68,9 +68,9 @@ console.log("Renamed:", stockSymbol, stockPrice);  // "AAPL" 215
 // If a property might be missing, you can set a fallback.
 
 const partialTicker = {
-  symbol: "TSLA",
-  price: 178.30,
-  // no 'change' property!
+    symbol: "TSLA",
+    price: 178.30,
+    // no 'change' property!
 };
 
 const { symbol: tslaSymbol, price: tslaPrice, change: tslaChange = 0 } = partialTicker;
@@ -99,8 +99,8 @@ console.log("Winner:", winner, "| Runner-up:", runnerUp);  // NVDA, MSFT
 // destructures it right in the parameter list.
 
 function formatTicker({ symbol, price, change }) {
-  const direction = change >= 0 ? "▲" : "▼";
-  console.log(symbol + "  $" + price.toFixed(2) + "  " + direction + " " + Math.abs(change).toFixed(2));
+    const direction = change >= 0 ? "▲" : "▼";
+    console.log(symbol + "  $" + price.toFixed(2) + "  " + direction + " " + Math.abs(change).toFixed(2));
 }
 
 formatTicker({ symbol: "GOOG", price: 174.50, change: -1.20 });
@@ -116,11 +116,11 @@ formatTicker({ symbol: "AMZN", price: 203.80, change: 5.60 });
 // When objects contain other objects, you can go deeper.
 
 const portfolio = {
-  owner: "Chris",
-  holdings: {
-    cash: 10000,
-    stocks: 3,
-  },
+    owner: "Chris",
+    holdings: {
+        cash: 10000,
+        stocks: 3,
+    },
 };
 
 const { owner, holdings: { cash, stocks } } = portfolio;
@@ -134,14 +134,14 @@ console.log(owner + " has $" + cash + " cash and " + stocks + " stocks");
 // take an array of objects, destructure each one, do something with it.
 
 const watchlist = [
-  { symbol: "NVDA", price: 142.50, change: 3.25 },
-  { symbol: "AAPL", price: 215.00, change: -0.80 },
-  { symbol: "TSLA", price: 178.30, change: 7.10 },
+    { symbol: "NVDA", price: 142.50, change: 3.25 },
+    { symbol: "AAPL", price: 215.00, change: -0.80 },
+    { symbol: "TSLA", price: 178.30, change: 7.10 },
 ];
 
 watchlist.map(function ({ symbol, price, change }) {
-  const arrow = change >= 0 ? "▲" : "▼";
-  console.log(symbol + "  $" + price.toFixed(2) + "  " + arrow + Math.abs(change).toFixed(2));
+    const arrow = change >= 0 ? "▲" : "▼";
+    console.log(symbol + "  $" + price.toFixed(2) + "  " + arrow + Math.abs(change).toFixed(2));
 });
 // NVDA  $142.50  ▲3.25
 // AAPL  $215.00  ▼0.80

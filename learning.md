@@ -62,6 +62,22 @@ This is the core skill. The entire AItrade frontend is React.
 
 **Free resource:** [react.dev](https://react.dev/learn) — the official tutorial is excellent and recently rewritten.
 
+### ⚛️ Phase 3 Project: Interactive AI Stock Dashboard
+To consolidate your React skills, build a visual scoreboard for the AI stock arena based on your previous terminal simulator!
+
+**The Goal:**
+Create a React application that displays a list of AI-related stocks, allows you to click on a stock to view its details, and automatically updates prices using an interval.
+
+**Steps to build it:**
+1. **Initialize Project:** Use `npm create vite@latest ai-stock-arena -- --template react` to start a new React project rapidly.
+2. **Component Structure:** Create parent and child components (e.g., `App`, `Scoreboard`, and `TickerDetail`).
+3. **State Management (`useState`):** Use `useState` in `App` to store an array of stock data: `[{ ticker: "NVDA", price: 120.5, name: "NVIDIA Corp" }, ...]` and another state variable for `selectedTicker`.
+4. **Data Passing (Props) & Lists:** Pass the stock array to `Scoreboard` via props. Map over the array (`.map()`) to render individual stock cards. Pass an `onSelect` callback function as a prop so clicking a card updates `selectedTicker` in the parent.
+5. **Side Effects (`useEffect`):** Implement `useEffect` alongside `setInterval` to randomly adjust stock prices every few seconds and update the state variable.
+6. **Conditional Rendering:** If `selectedTicker` is empty, display a placeholder text such as "Select a stock from the arena to view details". Otherwise, render the `TickerDetail` component.
+
+*Hint: This project perfectly integrates `useState`, `props`, `useEffect`, and conditional rendering — all critical prerequisites for the AItrade codebase!*
+
 ---
 
 ## Phase 4: Next.js (1 week)
