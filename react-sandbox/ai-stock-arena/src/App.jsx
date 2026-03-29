@@ -4,32 +4,16 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
-
-
 function Listings(props) {
-
-  const [currentMoney, setCurrentMoney] = useState(props.money);
-  const [priceChange, setPriceChange] = useState(0);
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-
-      const randomPrice = (Math.random() * 9) - 4.5
-      setPriceChange(randomPrice)
-      setCurrentMoney((latestMoney) =>
-        latestMoney + randomPrice);
-    }, 2000)
-    return () => clearInterval(intervalId);
-  }, [])
-
   return (
     <>
-      <div style={{ border: '1px solid white', padding: '10px', margin: '10px', width: '500px' }}>
+      <div onClick={props.onCardClick} style={{ border: '1px solid white', padding: '10px', margin: '10px', width: '500px', cursor: 'pointer' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <h2>{props.ticker}</h2>
-          <p>${currentMoney.toFixed(2)}</p>
+          <p>${props.money.toFixed(2)}</p>
         </div>
-        <p style={{ color: priceChange > 0 ? 'green' : 'red' }}>
-          {priceChange > 0 ? '+' : ''}{priceChange.toFixed(2)}%
+        <p style={{ color: props.priceChange > 0 ? 'green' : 'red' }}>
+          {props.priceChange > 0 ? '+' : ''}{props.priceChange.toFixed(2)}%
         </p>
       </div>
     </>
@@ -38,24 +22,84 @@ function Listings(props) {
 
 function App() {
 
-  const myPortfolio = [
-    { ticker: "AMD", price: 153.34 },
-    { ticker: "TSLA", price: 171.23 },
-    { ticker: "NVDA", price: 123.16 },
-    { ticker: "GOOG", price: 172.30 },
-    { ticker: "MSFT", price: 428.72 }
-  ];
+  const [portfolio, setPortfolio] = useState([
+    { ticker: "AMD", price: 153.34, priceChange: 0, sharesOutstanding: 15000000000, volume: 41600000, avgVolume: 46970000 },
+    { ticker: "TSLA", price: 171.23, priceChange: 0, sharesOutstanding: 37500000000, volume: 174000000, avgVolume: 61150000 },
+    { ticker: "NVDA", price: 123.16, priceChange: 0, sharesOutstanding: 24300000000, volume: 29280000, avgVolume: 176950000 },
+    { ticker: "GOOG", price: 172.30, priceChange: 0, sharesOutstanding: 12070000000, volume: 25600000, avgVolume: 21620000 },
+    { ticker: "MSFT", price: 428.72, priceChange: 0, sharesOutstanding: 7430000000, volume: 33000000, avgVolume: 35100000 }
+  ]);
+
+  const [selectedStockTicker, setSelectedStockTicker] = useState(null);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setPortfolio((currentPortfolio) => {
+        return currentPortfolio.map((stock) => {
+          const randomPrice = (Math.random() * 36) - 18;
+          const randomAddedTrade = Math.floor(Math.random() * 1000)
+          return {
+            ...stock,
+            price: stock.price + randomPrice,
+            priceChange: randomPrice,
+            volume: stock.volume + randomAddedTrade
+          }
+        });
+      });
+    }, 2000)
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const selectedStock = portfolio.find(stock => stock.ticker === selectedStockTicker);
 
   return (
     <>
       <h1>⚡ AI Stock Arena</h1>
       <h3>Live Simulation Environment</h3>
-      <div>
-        {myPortfolio.map((stock) => (
-          <Listings key={stock.ticker} ticker={stock.ticker} money={stock.price} />
-        ))}
-      </div>
 
+      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
+
+        <div>
+          {portfolio.map((stock) => (
+            <Listings
+              key={stock.ticker}
+              ticker={stock.ticker}
+              money={stock.price}
+              priceChange={stock.priceChange}
+              onCardClick={() => setSelectedStockTicker(stock.ticker)}
+            />
+          ))}
+        </div>
+
+        <div style={{ padding: '20px', width: '400px', borderLeft: '1px solid gray' }}>
+          {selectedStock ? (
+            <div>
+              <h1>{selectedStock.ticker} Details</h1>
+              <p>${selectedStock.price.toFixed(2)}</p>
+              <p style={{ color: selectedStock.priceChange > 0 ? 'green' : 'red' }}>
+                Change: {selectedStock.priceChange > 0 ? '+' : ''}{selectedStock.priceChange.toFixed(2)}%
+              </p>
+              <p>Market Cap: {(selectedStock.price * selectedStock.sharesOutstanding / 1000000000000).toFixed(2)}T</p>
+              <p>Volume: {(selectedStock.volume / 1000000).toFixed(2)}M</p>
+              <p>Average Volume: {(selectedStock.avgVolume / 1000000).toFixed(2)}M</p>
+              <button
+                onClick={() => setSelectedStockTicker(null)}
+                style={{ marginTop: '20px', padding: '10px', cursor: 'pointer' }}
+              >
+                Close Details
+              </button>
+            </div>
+          ) : (
+            <div>
+              <h1>📈</h1>
+              <h2>Select a Stock</h2>
+              <p>Click on any participant in the arena to view live details and trading options.</p>
+            </div>
+          )}
+        </div>
+
+      </div>
     </>
   )
 }

@@ -6,6 +6,8 @@ import './App.css'
 
 function ScoreDisplay(props) {
 
+  console.log("props:", props)
+
   const [currentMoney, setCurrentMoney] = useState(props.money)
   useEffect(() => {
     const intervalId = setInterval(() => {

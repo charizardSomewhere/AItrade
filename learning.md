@@ -58,7 +58,7 @@ This is the core skill. The entire AItrade frontend is React.
 4. **`useEffect`** — runs code when the component mounts or data changes (used in TickerSearch for click-outside)
 5. **`useRef`** — a reference to a DOM element (used in TickerSearch)
 6. **Conditional rendering** — `{isOpen && <Dropdown />}` or ternary `{x ? <A/> : <B/>}`
-7. **Lists & `.map()`** — rendering arrays of data as UI elements
+7. **Lists & `.mi think ap()`** — rendering arrays of data as UI elements
 
 **Free resource:** [react.dev](https://react.dev/learn) — the official tutorial is excellent and recently rewritten.
 
