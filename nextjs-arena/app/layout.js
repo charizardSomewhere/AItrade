@@ -21,8 +21,49 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}
-        <h1 style={{ marginTop: '50px' }}>Test</h1>
+      <body style={{}}>{children}
+        <h1 style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>The greatest website of all time (No one can see this since it's localhost lol)</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: '400px', margin: '0 auto' }}>
+          <a href="/" style={{
+            display: 'flex',
+            marginTop: '20px',
+            padding: '10px 20px',
+            backgroundColor: '#333',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '5px',
+            width: '100px',
+            height: '25px',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>Home</a>
+          <a href="/dashboard" style={{
+            display: 'flex',
+            marginTop: '20px',
+            padding: '10px 20px',
+            backgroundColor: '#333',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '5px',
+            width: '100px',
+            height: '25px',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>Dashboard</a>
+          <a href="/settings" style={{
+            display: 'flex',
+            marginTop: '20px',
+            padding: '10px 20px',
+            backgroundColor: '#333',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '5px',
+            width: '100px',
+            height: '25px',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>Settings</a>
+        </div>
       </body>
 
     </html>

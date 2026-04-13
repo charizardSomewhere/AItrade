@@ -90,6 +90,10 @@ Next.js is the framework that wraps React. It gives you routing, server renderin
 
 **Free resource:** [nextjs.org/learn](https://nextjs.org/learn)
 
+### 🛠️ Phase 4 Project: Multi-Page Dashboard
+Take your React Arena and move it into your very first Next.js project.
+**The Goal:** Create at least two pages: a `/dashboard` route where your stock arena lives, and a `/settings` route with dummy user preferences. Build a global `layout.js` wrapper that includes a navigation bar to easily click between the two pages!
+
 ---
 
 ## Phase 5: Styling with Tailwind CSS (a few days)
@@ -98,6 +102,10 @@ This project uses Tailwind — utility CSS classes like `bg-[#0d0d14] text-sm fo
 1. Install it with Next.js (the setup wizard asks you)
 2. Learn the pattern: instead of writing CSS files, you add classes directly — `className="flex items-center gap-2 px-4 py-2"`
 3. Use the [Tailwind docs](https://tailwindcss.com/docs) as a lookup reference — you don't memorize it, you search it
+
+### 🛠️ Phase 5 Project: Beautify the Arena
+Ditch the plain CSS and style your entire Next.js Dashboard using Tailwind utility classes.
+**The Goal:** Give your app a dark, modern look like a real trading terminal. Use Tailwind to add soft glowing borders, dynamic hover effects on your buttons (`hover:bg-blue-600`), and flexbox layouts (`flex justify-between items-center`). Use conditional classes to make the text `text-green-500` or `text-red-500` immediately when prices change.
 
 ---
 
@@ -110,6 +118,10 @@ The AItrade app uses **Recharts** for charts.
 4. Learn `<ResponsiveContainer>` to make charts resize
 
 **Free resource:** [recharts.org](https://recharts.org/en-US/) — the examples page is the best way to learn.
+
+### 🛠️ Phase 6 Project: Line Chart Integration
+Add a live mini-chart to your Dashboard using Recharts.
+**The Goal:** Instead of just keeping a single `price` number in state, update your application to store an array of the last 10 historical prices for a stock. Feed this array into a `<ResponsiveContainer><LineChart/></ResponsiveContainer>` so it dynamically visualizes the price movements jumping up and down every two seconds!
 
 ---
 
