@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 function Listings(props) {
   return (
     <>
-      <div onClick={props.onCardClick} style={{ border: '1px solid white', padding: '10px', margin: '10px', width: '500px', cursor: 'pointer' }}>
+      <div onClick={props.onCardClick} style={{ border: '1px solid var(--foreground)', padding: '10px', margin: '10px', width: '500px', cursor: 'pointer' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <h2>{props.ticker}</h2>
           <p>${props.money.toFixed(2)}</p>

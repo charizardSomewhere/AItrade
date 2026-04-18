@@ -1,6 +1,7 @@
 
 
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from 'next/link';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
       <body style={{}}>{children}
         <h1 style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>The greatest website of all time (No one can see this since it's localhost lol)</h1>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '400px', margin: '0 auto' }}>
-          <a href="/" style={{
+          <Link href="/" style={{
             display: 'flex',
             marginTop: '20px',
             padding: '10px 20px',
@@ -36,8 +37,8 @@ export default function RootLayout({ children }) {
             height: '25px',
             justifyContent: 'center',
             alignItems: 'center'
-          }}>Home</a>
-          <a href="/dashboard" style={{
+          }}>Home</Link>
+          <Link href="/dashboard" style={{
             display: 'flex',
             marginTop: '20px',
             padding: '10px 20px',
@@ -49,8 +50,8 @@ export default function RootLayout({ children }) {
             height: '25px',
             justifyContent: 'center',
             alignItems: 'center'
-          }}>Dashboard</a>
-          <a href="/settings" style={{
+          }}>Dashboard</Link>
+          <Link href="/settings" style={{
             display: 'flex',
             marginTop: '20px',
             padding: '10px 20px',
@@ -62,7 +63,7 @@ export default function RootLayout({ children }) {
             height: '25px',
             justifyContent: 'center',
             alignItems: 'center'
-          }}>Settings</a>
+          }}>Settings</Link>
         </div>
       </body>
 
