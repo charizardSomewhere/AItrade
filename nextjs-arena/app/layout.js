@@ -2,6 +2,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from 'next/link';
+import { StockProvider } from './StockContext';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,7 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body style={{}}>{children}
+      <body style={{}}>
+        <StockProvider>
+          {children}
         <h1 style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>The greatest website of all time (No one can see this since it's localhost lol)</h1>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '400px', margin: '0 auto' }}>
           <Link href="/" style={{
@@ -65,6 +68,7 @@ export default function RootLayout({ children }) {
             alignItems: 'center'
           }}>Settings</Link>
         </div>
+        </StockProvider>
       </body>
 
     </html>
