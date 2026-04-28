@@ -1,9 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { StockContext } from '../StockContext';
 
 export default function setting() {
 
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const { timeMS, setTime } = useContext(StockContext)
+
+    function RRdropdown(e) {
+        const selectedRR = e.target.value
+        setTime(selectedRR);
+    }
 
     return (
         <div style={{ padding: '50px' }}>
@@ -24,15 +31,15 @@ export default function setting() {
                 }>Toggle Theme</button>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
-                <label for="RR" style={{ marginRight: '10px' }}>Refresh Rate</label>
-                <select name="RR" id="RR">
-                    <option value="1">1 Seconds</option>
-                    <option value="2">2 Seconds</option>
-                    <option value="5">5 Seconds</option>
+                <label htmlFor="RR" style={{ marginRight: '10px' }}>Refresh Rate</label>
+                <select onChange={RRdropdown} value={timeMS} name="RR" id="RR">
+                    <option value="1000">1 Seconds</option>
+                    <option value="2000">2 Seconds</option>
+                    <option value="5000">5 Seconds</option>
                 </select>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
-                <label for="currency" style={{ marginRight: '10px' }}>Currency</label>
+                <label htmlFor="currency" style={{ marginRight: '10px' }}>Currency</label>
                 <select name="currency" id="currency">
                     <option value="USD">USD</option>
                     <option value="CAD">CAD</option>

@@ -13,6 +13,8 @@ export function StockProvider({ children }) {
     { ticker: "MSFT", price: 428.72, startingPrice: 428.72, priceChange: 0, sharesOutstanding: 7430000000, volume: 33000000, avgVolume: 35100000 }
   ]);
 
+  const [timeMS, setTime] = useState(1000)
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setPortfolio((currentPortfolio) => {
@@ -27,13 +29,13 @@ export function StockProvider({ children }) {
           };
         });
       });
-    }, 2000);
+    }, timeMS);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [timeMS]);
 
   return (
-    <StockContext.Provider value={{ portfolio }}>
+    <StockContext.Provider value={{ portfolio, timeMS, setTime }}>
       {children}
     </StockContext.Provider>
   );
