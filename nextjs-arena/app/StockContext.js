@@ -15,6 +15,10 @@ export function StockProvider({ children }) {
 
   const [timeMS, setTime] = useState(1000)
 
+  const [currency, setCurrency] = useState("USD")
+  const currencyMultipliers = { "USD": 1.00, "CAD": 1.37, "EUR": 0.93, "JPY": 153.20, "GBP": 0.8 }
+  const currencySymbols = { "USD": '$', "CAD": 'C$', "EUR": '€', "JPY": '¥', "GBP": '£' }
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setPortfolio((currentPortfolio) => {
@@ -35,7 +39,7 @@ export function StockProvider({ children }) {
   }, [timeMS]);
 
   return (
-    <StockContext.Provider value={{ portfolio, timeMS, setTime }}>
+    <StockContext.Provider value={{ portfolio, timeMS, setTime, currency, setCurrency, currencyMultipliers, currencySymbols }}>
       {children}
     </StockContext.Provider>
   );

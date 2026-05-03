@@ -13,7 +13,7 @@ function Listings(props) {
       <div onClick={props.onCardClick} style={{ border: '1px solid var(--foreground)', padding: '10px', margin: '10px', width: '500px', cursor: 'pointer' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <h2>{props.ticker}</h2>
-          <p>${props.money.toFixed(2)}</p>
+          <p>{props.symbol}{props.money.toFixed(2)}</p>
         </div>
         <p style={{ color: props.priceChange > 0 ? 'green' : 'red' }}>
           {props.priceChange > 0 ? '+' : ''}{props.priceChange.toFixed(2)}%
@@ -50,7 +50,7 @@ function Listings(props) {
 
 export default function App() {
 
-  const { portfolio } = useContext(StockContext);
+  const { portfolio, currency, currencyMultipliers, currencySymbols } = useContext(StockContext);
 
   const [selectedStockTicker, setSelectedStockTicker] = useState(null);
   const [startingMoney, setStartingMoney] = useState(null);
@@ -69,9 +69,10 @@ export default function App() {
             <Listings
               key={stock.ticker}
               ticker={stock.ticker}
-              money={stock.price}
+              money={stock.price * currencyMultipliers[currency]}
               startPrice={stock.startingPrice}
               priceChange={stock.priceChange}
+              symbol={currencySymbols[currency]}
               onCardClick={() => {
                 setSelectedStockTicker(stock.ticker);
                 setStartingMoney(stock.startingPrice);
@@ -84,7 +85,7 @@ export default function App() {
           {selectedStock ? (
             <div>
               <h1>{selectedStock.ticker} Details</h1>
-              <p>${selectedStock.price.toFixed(2)}</p>
+              <p>{currencySymbols[currency]}{selectedStock.price.toFixed(2)}</p>
               <p style={{ color: selectedStock.priceChange > 0 ? 'green' : 'red' }}>
                 Latest Tick: {selectedStock.priceChange > 0 ? '+' : ''}{selectedStock.priceChange.toFixed(2)}
               </p>

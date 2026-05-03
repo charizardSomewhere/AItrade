@@ -5,11 +5,16 @@ import { StockContext } from '../StockContext';
 export default function setting() {
 
     const [isDarkMode, setIsDarkMode] = useState(false);
-    const { timeMS, setTime } = useContext(StockContext)
+    const { timeMS, setTime, currency, setCurrency } = useContext(StockContext)
 
     function RRdropdown(e) {
         const selectedRR = e.target.value
         setTime(selectedRR);
+    }
+
+    function CurrencyDropwdown(e) {
+        const selectedCurrencyType = e.target.value
+        setCurrency(selectedCurrencyType)
     }
 
     return (
@@ -40,7 +45,7 @@ export default function setting() {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
                 <label htmlFor="currency" style={{ marginRight: '10px' }}>Currency</label>
-                <select name="currency" id="currency">
+                <select onChange={CurrencyDropwdown} value={currency} name="currency" id="currency">
                     <option value="USD">USD</option>
                     <option value="CAD">CAD</option>
                     <option value="EUR">EUR</option>
