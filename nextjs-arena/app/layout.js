@@ -26,48 +26,65 @@ export default function RootLayout({ children }) {
       <body style={{}}>
         <StockProvider>
           {children}
-        <h1 style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>The greatest website of all time (No one can see this since it's localhost lol)</h1>
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '400px', margin: '0 auto' }}>
-          <Link href="/" style={{
+          <h1 style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>The greatest website of all time (No one can see this since it's localhost lol)</h1>
+          <div style={{ display: 'flex', justifyContent: 'space-between', width: '400px', margin: '0 auto' }}>
+            <Link href="/" style={{
+              display: 'flex',
+              marginTop: '20px',
+              padding: '10px 20px',
+              backgroundColor: '#333',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '5px',
+              width: '100px',
+              height: '25px',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>Home</Link>
+            <Link href="/dashboard" style={{
+              display: 'flex',
+              marginTop: '20px',
+              padding: '10px 20px',
+              backgroundColor: '#333',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '5px',
+              width: '100px',
+              height: '25px',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>Dashboard</Link>
+            <Link href="/settings" style={{
+              display: 'flex',
+              marginTop: '20px',
+              padding: '10px 20px',
+              backgroundColor: '#333',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '5px',
+              width: '100px',
+              height: '25px',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>Settings</Link>
+          </div>
+          <div style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
             display: 'flex',
-            marginTop: '20px',
-            padding: '10px 20px',
-            backgroundColor: '#333',
-            color: 'white',
-            textDecoration: 'none',
-            borderRadius: '5px',
-            width: '100px',
-            height: '25px',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>Home</Link>
-          <Link href="/dashboard" style={{
-            display: 'flex',
-            marginTop: '20px',
-            padding: '10px 20px',
-            backgroundColor: '#333',
-            color: 'white',
-            textDecoration: 'none',
-            borderRadius: '5px',
-            width: '100px',
-            height: '25px',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>Dashboard</Link>
-          <Link href="/settings" style={{
-            display: 'flex',
-            marginTop: '20px',
-            padding: '10px 20px',
-            backgroundColor: '#333',
-            color: 'white',
-            textDecoration: 'none',
-            borderRadius: '5px',
-            width: '100px',
-            height: '25px',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>Settings</Link>
-        </div>
+            flexDirection: 'column',
+            gap: '10px',
+            zIndex: 1000
+          }}>
+            <div style={{ backgroundColor: '#333', color: 'white', padding: '15px 25px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }}>
+              🔔 TSLA just spiked 5%!
+            </div>
+            <div style={{ backgroundColor: '#333', color: 'white', padding: '15px 25px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }}>
+              🔔 AMD just crashed 3%!
+            </div>
+          </div>
+
         </StockProvider>
       </body>
 
